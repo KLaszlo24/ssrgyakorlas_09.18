@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Színek</title>
+
+    <style>
+        h1 {
+            color: <%= selectedColor %>;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="GET" action="/colorpicker">
+        <h1>Színválasztó</h1>
+
+        <select name="color">
+            <% for (const color of colors) { %>
+                <option
+                    value="<%= color %>"
+                    <%= color === selectedColor ? 'selected' : '' %>
+                >
+                    <%= color %>
+                </option>
+            <% } %>
+        </select>
+
+        <button type="submit">Színválasztó</button>
+    </form>
+</body>
+</html>
